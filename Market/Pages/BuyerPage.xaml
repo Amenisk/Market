@@ -1,0 +1,53 @@
+﻿<Page x:Class="Market320.Pages.BuyerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Market320.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BuyerPage" Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Row="0" Grid.Column="0">
+            <TextBlock HorizontalAlignment="Center">Basket</TextBlock>
+            <ScrollViewer>
+                <StackPanel>
+                    <ListView x:Name="BasketList">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Image Source="{Binding Image}" Width="300px"></Image>
+                                    <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <TextBlock HorizontalAlignment="Center">Product list</TextBlock>
+            <ScrollViewer>
+                <StackPanel>
+                    <ListView x:Name="ProductList" SelectionChanged="Select">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="350px 0 0 0">
+                                    <Image Source="{Binding Image}" Width="500px"/>
+                                    <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>
